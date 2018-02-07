@@ -1,0 +1,41 @@
+server:
+  port: 3001
+
+spring:
+  application:
+    name: zuul-server
+
+zuul:
+  add-host-header: true             # 页面重定向
+  ignored-services: "*"            # 设置忽略的服务，即配置后将不会被路由（但对于明确配置在路由中的，将不会被忽略）
+  #ignoredPatterns: /**/admin/**    # 设置忽略的请求路径
+  sensitive-headers: Cookie,Set-Cookie,Authorization
+  routes:
+    sping-cloud-eureka-server-provider:
+      path: /server/provider/**
+      custom-sensitive-headers: false
+    legacy:
+      path: /**
+
+hystrix:
+    command:
+        default:
+            execution:
+                isolation:
+                    thread:
+                        timeoutInMilliseconds: 600000
+ribbon:
+  ReadTimeout: 3000
+  ConnectTimeout: 600000
+
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${spring.cloud.client.ipAddress}:${server.port}
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 15
+  client:
+    healthcheck:
+      enabled: true
+    serviceUrl:
+      defaultZone: http://user:password@192.168.0.17:1001/eureka/
