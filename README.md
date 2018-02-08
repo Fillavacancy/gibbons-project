@@ -1,12 +1,18 @@
 # QuickStart
 
-eureka-server     1001 1002  
-config-server     2001 2002  
-zuul-server       3001 3002  
-hystrix-dashboard 4001 4002  
-turbine-server    5001 5002  
-common-server     8080  
-msg-service       8081  
+eureka-server      1001 1002  服务注册、发现  
+config-server      2001 2002  配置管理  
+zuul-server        3001 3002  API网关  
+hystrix-dashboard  4001 4002  Hystrix仪表盘  
+turbine-server     5001 5002  监控集群下Hystrix  
+common-server      8080       公共服务  
+msg-service        8081       信息服务  
+member-server      8082       会员管理服务
+bank-server        8083       电子银行模块  
+query-server       8084       信息查询模块  
+shopping-server    8085       购物管理模块  
+information-server 8086       咨询管理模块  
+sys-server         8087       后台管理模块
 
 
 基于SpringCloud体系实现，简单购物流程实现，满足基本功能：注册、登录、商品列表展示、商品详情展示、订单创建、详情查看、订单支付、库存更新等等。
