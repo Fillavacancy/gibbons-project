@@ -8,7 +8,7 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/Fillavacancy/spring-cloud-examples
+          uri: https://github.com/Fillavacancy/gibbons-project
           search-paths: config-prod
           clone-on-start: true
 
