@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gibbons.sysserver.dao.ButtonDao">
+  <resultMap id="BaseResultMap" type="com.gibbons.sysserver.entity.Button">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="button_name" jdbcType="VARCHAR" property="buttonName" />
+    <result column="button_code" jdbcType="VARCHAR" property="buttonCode" />
+    <result column="iocn" jdbcType="VARCHAR" property="iocn" />
+    <result column="menu_id" jdbcType="INTEGER" property="menuId" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, button_name, button_code, iocn, menu_id, state
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_button
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_button
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.gibbons.sysserver.entity.Button" useGeneratedKeys="true">
+    insert into t_button
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="buttonName != null">
+        button_name,
+      </if>
+      <if test="buttonCode != null">
+        button_code,
+      </if>
+      <if test="iocn != null">
+        iocn,
+      </if>
+      <if test="menuId != null">
+        menu_id,
+      </if>
+      <if test="state != null">
+        state,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="buttonName != null">
+        #{buttonName,jdbcType=VARCHAR},
+      </if>
+      <if test="buttonCode != null">
+        #{buttonCode,jdbcType=VARCHAR},
+      </if>
+      <if test="iocn != null">
+        #{iocn,jdbcType=VARCHAR},
+      </if>
+      <if test="menuId != null">
+        #{menuId,jdbcType=INTEGER},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.gibbons.sysserver.entity.Button">
+    update t_button
+    <set>
+      <if test="buttonName != null">
+        button_name = #{buttonName,jdbcType=VARCHAR},
+      </if>
+      <if test="buttonCode != null">
+        button_code = #{buttonCode,jdbcType=VARCHAR},
+      </if>
+      <if test="iocn != null">
+        iocn = #{iocn,jdbcType=VARCHAR},
+      </if>
+      <if test="menuId != null">
+        menu_id = #{menuId,jdbcType=INTEGER},
+      </if>
+      <if test="state != null">
+        state = #{state,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
