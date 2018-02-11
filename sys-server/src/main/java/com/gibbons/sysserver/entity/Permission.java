@@ -20,18 +20,39 @@ public class Permission implements Serializable {
 
     private static final long serialVersionUID = -2252563321924150859L;
 
+    /**
+     * 编号
+     */
     private Integer id;
 
+    /**
+     * 权限名
+     */
     private String perName;
 
+    /**
+     * 权限代码
+     */
     private String perCode;
 
+    /**
+     * 父 ID
+     */
     private Integer pId;
 
+    /**
+     * 资源 ID
+     */
     private Integer resourceId;
 
+    /**
+     * 权限类型
+     */
     private Integer perType;
 
+    /**
+     * 状态
+     */
     private Integer state;
 
     public Integer getId() {

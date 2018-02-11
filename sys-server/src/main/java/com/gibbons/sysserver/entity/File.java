@@ -20,14 +20,29 @@ public class File implements Serializable {
 
     private static final long serialVersionUID = -5266564260197235003L;
 
+    /**
+     * 编号
+     */
     private Integer id;
 
+    /**
+     * 文件名
+     */
     private String fileName;
 
+    /**
+     * 文件代码
+     */
     private String fileCode;
 
+    /**
+     * 文件路径
+     */
     private String filePath;
 
+    /**
+     * 状态
+     */
     private Integer state;
 
     public Integer getId() {

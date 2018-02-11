@@ -20,10 +20,19 @@ public class UserRole implements Serializable {
 
     private static final long serialVersionUID = -594133894191174884L;
 
+    /**
+     * 编号
+     */
     private Integer id;
 
+    /**
+     * 用户 ID
+     */
     private Integer userId;
 
+    /**
+     * 角色 ID
+     */
     private Integer roleId;
 
     public Integer getId() {

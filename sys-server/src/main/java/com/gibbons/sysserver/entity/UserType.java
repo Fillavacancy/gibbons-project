@@ -20,8 +20,14 @@ public class UserType implements Serializable {
 
     private static final long serialVersionUID = -4144952248025870444L;
 
+    /**
+     * 编号
+     */
     private Integer id;
 
+    /**
+     * 类型名
+     */
     private String typeName;
 
     public Integer getId() {

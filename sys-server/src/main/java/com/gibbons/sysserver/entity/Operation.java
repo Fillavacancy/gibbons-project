@@ -20,12 +20,24 @@ public class Operation implements Serializable {
 
     private static final long serialVersionUID = -5828404518294584932L;
 
+    /**
+     * 编号
+     */
     private Integer id;
 
+    /**
+     * 功能名
+     */
     private String operationName;
 
+    /**
+     * 功能代码
+     */
     private String operationCode;
 
+    /**
+     * 状态
+     */
     private Integer state;
 
     public Integer getId() {

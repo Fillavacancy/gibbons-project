@@ -20,18 +20,39 @@ public class Menu implements Serializable {
 
     private static final long serialVersionUID = 8736372418895181782L;
 
+    /**
+     * 编号
+     */
     private Integer id;
 
+    /**
+     * 菜单名
+     */
     private String menuName;
 
+    /**
+     * 菜单代码
+     */
     private String menuCode;
 
+    /**
+     * 菜单 URL
+     */
     private String url;
 
+    /**
+     * 菜单 ICON
+     */
     private String icon;
 
+    /**
+     * 父 ID
+     */
     private Integer pId;
 
+    /**
+     * 状态
+     */
     private Integer state;
 
     public Integer getId() {

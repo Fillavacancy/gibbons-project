@@ -20,13 +20,15 @@ public class PaperworkType implements Serializable {
 
     private static final long serialVersionUID = 4711217379504848764L;
 
+    /**
+     * 编号
+     */
     private Integer id;
 
+    /**
+     * 证件类型名
+     */
     private String paperworkTypeName;
-
-    public Integer getId() {
-        return id;
-    }
 
     public void setId(Integer id) {
         this.id = id;

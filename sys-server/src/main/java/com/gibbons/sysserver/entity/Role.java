@@ -7,7 +7,7 @@
 package com.gibbons.sysserver.entity;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Timestamp;
 
 /**
  * 〈一句话功能简述〉<br>
@@ -21,16 +21,34 @@ public class Role implements Serializable {
 
     private static final long serialVersionUID = -3179537009482914191L;
 
+    /**
+     * 编号
+     */
     private Integer id;
 
+    /**
+     * 角色名
+     */
     private String roleName;
 
+    /**
+     * 角色代码
+     */
     private String roleCode;
 
-    private Date updateTime;
+    /**
+     * 修改时间
+     */
+    private Timestamp updateTime;
 
+    /**
+     * 创建人
+     */
     private String referee;
 
+    /**
+     * 状态
+     */
     private Integer state;
 
     public Integer getId() {
@@ -57,11 +75,11 @@ public class Role implements Serializable {
         this.roleCode = roleCode == null ? null : roleCode.trim();
     }
 
-    public Date getUpdateTime() {
+    public Timestamp getUpdateTime() {
         return updateTime;
     }
 
-    public void setUpdateTime(Date updateTime) {
+    public void setUpdateTime(Timestamp updateTime) {
         this.updateTime = updateTime;
     }
 

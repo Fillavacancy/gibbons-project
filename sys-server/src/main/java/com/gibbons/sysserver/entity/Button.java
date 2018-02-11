@@ -20,16 +20,34 @@ public class Button implements Serializable {
 
     private static final long serialVersionUID = -1512315766203709250L;
 
+    /**
+     * 编号
+     */
     private Integer id;
 
+    /**
+     * 按钮名
+     */
     private String buttonName;
 
+    /**
+     * 按钮代码
+     */
     private String buttonCode;
 
+    /**
+     * 按钮 IOCN
+     */
     private String iocn;
 
+    /**
+     * 菜单 ID
+     */
     private Integer menuId;
 
+    /**
+     * 状态
+     */
     private Integer state;
 
     public Integer getId() {
