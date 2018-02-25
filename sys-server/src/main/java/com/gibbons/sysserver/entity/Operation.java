@@ -38,7 +38,7 @@ public class Operation implements Serializable {
     /**
      * 状态
      */
-    private Integer state;
+    private Integer status;
 
     public Integer getId() {
         return id;
@@ -64,11 +64,11 @@ public class Operation implements Serializable {
         this.operationCode = operationCode == null ? null : operationCode.trim();
     }
 
-    public Integer getState() {
-        return state;
+    public Integer getStatus() {
+        return status;
     }
 
-    public void setState(Integer state) {
-        this.state = state;
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 }

@@ -53,7 +53,7 @@ public class Menu implements Serializable {
     /**
      * 状态
      */
-    private Integer state;
+    private Integer status;
 
     public Integer getId() {
         return id;
@@ -103,11 +103,11 @@ public class Menu implements Serializable {
         this.pId = pId;
     }
 
-    public Integer getState() {
-        return state;
+    public Integer getStatus() {
+        return status;
     }
 
-    public void setState(Integer state) {
-        this.state = state;
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 }

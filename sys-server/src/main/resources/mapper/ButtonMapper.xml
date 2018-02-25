@@ -7,10 +7,10 @@
     <result column="button_code" jdbcType="VARCHAR" property="buttonCode" />
     <result column="iocn" jdbcType="VARCHAR" property="iocn" />
     <result column="menu_id" jdbcType="INTEGER" property="menuId" />
-    <result column="state" jdbcType="INTEGER" property="state" />
+    <result column="status" jdbcType="INTEGER" property="status" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, button_name, button_code, iocn, menu_id, state
+    id, button_name, button_code, iocn, menu_id, status
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -37,8 +37,8 @@
       <if test="menuId != null">
         menu_id,
       </if>
-      <if test="state != null">
-        state,
+      <if test="status != null">
+        status,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -54,8 +54,8 @@
       <if test="menuId != null">
         #{menuId,jdbcType=INTEGER},
       </if>
-      <if test="state != null">
-        #{state,jdbcType=INTEGER},
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -74,8 +74,8 @@
       <if test="menuId != null">
         menu_id = #{menuId,jdbcType=INTEGER},
       </if>
-      <if test="state != null">
-        state = #{state,jdbcType=INTEGER},
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}

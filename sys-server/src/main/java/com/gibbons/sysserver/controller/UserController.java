@@ -7,7 +7,7 @@
 package com.gibbons.sysserver.controller;
 
 import com.gibbons.sysserver.entity.User;
-import com.gibbons.sysserver.entity.vo.Page;
+import com.github.pagehelper.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

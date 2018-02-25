@@ -8,10 +8,10 @@
     <result column="url" jdbcType="VARCHAR" property="url" />
     <result column="icon" jdbcType="VARCHAR" property="icon" />
     <result column="p_id" jdbcType="INTEGER" property="pId" />
-    <result column="state" jdbcType="INTEGER" property="state" />
+    <result column="status" jdbcType="INTEGER" property="status" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, menu_name, menu_code, url, icon, p_id, state
+    id, menu_name, menu_code, url, icon, p_id, status
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -41,8 +41,8 @@
       <if test="pId != null">
         p_id,
       </if>
-      <if test="state != null">
-        state,
+      <if test="status != null">
+        status,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -61,8 +61,8 @@
       <if test="pId != null">
         #{pId,jdbcType=INTEGER},
       </if>
-      <if test="state != null">
-        #{state,jdbcType=INTEGER},
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -84,8 +84,8 @@
       <if test="pId != null">
         p_id = #{pId,jdbcType=INTEGER},
       </if>
-      <if test="state != null">
-        state = #{state,jdbcType=INTEGER},
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}

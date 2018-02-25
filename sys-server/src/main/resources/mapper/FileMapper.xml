@@ -6,10 +6,10 @@
     <result column="file_name" jdbcType="VARCHAR" property="fileName" />
     <result column="file_code" jdbcType="VARCHAR" property="fileCode" />
     <result column="file_path" jdbcType="VARCHAR" property="filePath" />
-    <result column="state" jdbcType="INTEGER" property="state" />
+    <result column="status" jdbcType="INTEGER" property="status" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, file_name, file_code, file_path, state
+    id, file_name, file_code, file_path, status
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -33,8 +33,8 @@
       <if test="filePath != null">
         file_path,
       </if>
-      <if test="state != null">
-        state,
+      <if test="status != null">
+        status,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -47,8 +47,8 @@
       <if test="filePath != null">
         #{filePath,jdbcType=VARCHAR},
       </if>
-      <if test="state != null">
-        #{state,jdbcType=INTEGER},
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -64,8 +64,8 @@
       <if test="filePath != null">
         file_path = #{filePath,jdbcType=VARCHAR},
       </if>
-      <if test="state != null">
-        state = #{state,jdbcType=INTEGER},
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}

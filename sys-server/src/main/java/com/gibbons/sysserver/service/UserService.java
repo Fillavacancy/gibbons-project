@@ -7,7 +7,7 @@
 package com.gibbons.sysserver.service;
 
 import com.gibbons.sysserver.entity.User;
-import com.gibbons.sysserver.entity.vo.Page;
+import com.github.pagehelper.Page;
 
 import java.util.List;
 
