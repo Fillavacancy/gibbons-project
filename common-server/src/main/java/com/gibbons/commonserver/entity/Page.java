@@ -4,7 +4,7 @@
  * Date:     2018/2/9 14:12
  * Description: 分页参数
  */
-package com.gibbons.sysserver.entity.vo;
+package com.gibbons.commonserver.entity;
 
 /**
  * 〈一句话功能简述〉<br>

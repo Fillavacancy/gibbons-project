@@ -4,7 +4,7 @@
  * Date:     2017/11/1 14:10
  * Description: 数据校验工具类
  */
-package com.gibbons.sysserver.util;
+package com.gibbons.commonserver.util;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.math.NumberUtils;

@@ -4,7 +4,7 @@
  * Date:     2017/12/17 16:58
  * Description:
  */
-package com.gibbons.sysserver.util;
+package com.gibbons.commonserver.util;
 
 /**
  * 〈一句话功能简述〉<br>

@@ -4,7 +4,7 @@
  * Date:     2017/11/1 13:34
  * Description: 分页工具类
  */
-package com.gibbons.sysserver.util;
+package com.gibbons.commonserver.util;
 
 /**
  * 〈一句话功能简述〉<br>
