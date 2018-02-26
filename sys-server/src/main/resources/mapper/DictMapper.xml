@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gibbons.sysserver.dao.DictDao">
+    <resultMap id="BaseResultMap" type="com.gibbons.sysserver.entity.Dict">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="code" jdbcType="VARCHAR" property="code"/>
+        <result column="type_id" jdbcType="INTEGER" property="typeId"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="value" jdbcType="VARCHAR" property="value"/>
+        <result column="fixed" jdbcType="INTEGER" property="fixed"/>
+        <result column="deft" jdbcType="INTEGER" property="deft"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, code, type_id, name, value, fixed, deft, create_time, update_time, status
+  </sql>
+
+    <!-- 根据字典类型查询 -->
+    <select id="getAllDict" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from sys_dict
+        where type_id = #{typeId,jdbcType=INTEGER}
+    </select>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from sys_dict
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+
+    <!-- 删除指定数据字典 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    update sys_dict
+    set status = -1
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+
+    <!-- 添加数据字典 -->
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.gibbons.sysserver.entity.Dict"
+            useGeneratedKeys="true">
+        insert into sys_dict
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="code != null">
+                code,
+            </if>
+            <if test="typeId != null">
+                type_id,
+            </if>
+            <if test="name != null">
+                name,
+            </if>
+            <if test="value != null">
+                value,
+            </if>
+            <if test="fixed != null">
+                fixed,
+            </if>
+            <if test="deft != null">
+                deft,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+            <if test="status != null">
+                status,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="code != null">
+                #{code,jdbcType=VARCHAR},
+            </if>
+            <if test="typeId != null">
+                #{typeId,jdbcType=INTEGER},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="value != null">
+                #{value,jdbcType=VARCHAR},
+            </if>
+            <if test="fixed != null">
+                #{fixed,jdbcType=INTEGER},
+            </if>
+            <if test="deft != null">
+                #{deft,jdbcType=INTEGER},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 修改数据字典 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.gibbons.sysserver.entity.Dict">
+        update sys_dict
+        <set>
+            <if test="code != null">
+                code = #{code,jdbcType=VARCHAR},
+            </if>
+            <if test="typeId != null">
+                type_id = #{typeId,jdbcType=INTEGER},
+            </if>
+            <if test="name != null">
+                name = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="value != null">
+                value = #{value,jdbcType=VARCHAR},
+            </if>
+            <if test="fixed != null">
+                fixed = #{fixed,jdbcType=INTEGER},
+            </if>
+            <if test="deft != null">
+                deft = #{deft,jdbcType=INTEGER},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="status != null">
+                status = #{status,jdbcType=INTEGER},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+</mapper>

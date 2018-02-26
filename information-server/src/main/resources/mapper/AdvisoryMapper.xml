@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gibbons.informationserver.dao.AdvisoryDao">
+    <resultMap id="BaseResultMap" type="com.gibbons.informationserver.entity.Advisory">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="title" jdbcType="VARCHAR" property="title"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+        <result column="release_time" jdbcType="TIMESTAMP" property="releaseTime"/>
+        <result column="user_id" jdbcType="INTEGER" property="userId"/>
+        <result column="weights" jdbcType="REAL" property="weights"/>
+        <result column="annex_type" jdbcType="INTEGER" property="annexType"/>
+        <result column="annex_storage_path" jdbcType="VARCHAR" property="annexStoragePath"/>
+        <result column="annex_size" jdbcType="INTEGER" property="annexSize"/>
+        <result column="annex_upload_time" jdbcType="TIMESTAMP" property="annexUploadTime"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
+    </resultMap>
+    <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.gibbons.informationserver.entity.Advisory">
+        <result column="content" jdbcType="LONGVARCHAR" property="content"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, title, create_time, update_time, release_time, user_id, weights, annex_type, 
+    annex_storage_path, annex_size, annex_upload_time, status
+  </sql>
+    <sql id="Blob_Column_List">
+    content
+  </sql>
+
+    <!-- 查询资讯信息 根据type查询 管理员查询所有 -->
+    <select id="getAdvisoryByUserIdAndType" resultMap="ResultMapWithBLOBs">
+        select
+        <include refid="Base_Column_List"/>
+        ,
+        <include refid="Blob_Column_List"/>
+        from info_advisory
+        <where>
+            <if test="type != null and type == 1">
+                user_id = #{userId,jdbcType=INTEGER} and
+            </if>
+            status = 1
+        </where>
+    </select>
+
+    <!-- 查询资讯信息 根据 userId 查询 -->
+    <select id="getAdvisoryByUserId" resultMap="ResultMapWithBLOBs">
+        select
+        <include refid="Base_Column_List"/>
+        ,
+        <include refid="Blob_Column_List"/>
+        from info_advisory
+        where user_id = #{userId,jdbcType=INTEGER} and status = 1
+    </select>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+        select
+        <include refid="Base_Column_List"/>
+        ,
+        <include refid="Blob_Column_List"/>
+        from info_advisory
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+
+    <!-- 删除资讯信息 -->
+    <update id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    update info_advisory
+      set status = -1
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+    <!-- 添加资讯信息 -->
+    <insert id="insertSelective" keyColumn="id" keyProperty="id"
+            parameterType="com.gibbons.informationserver.entity.Advisory" useGeneratedKeys="true">
+        insert into info_advisory
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="title != null">
+                title,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+            <if test="releaseTime != null">
+                release_time,
+            </if>
+            <if test="userId != null">
+                user_id,
+            </if>
+            <if test="weights != null">
+                weights,
+            </if>
+            <if test="annexType != null">
+                annex_type,
+            </if>
+            <if test="annexStoragePath != null">
+                annex_storage_path,
+            </if>
+            <if test="annexSize != null">
+                annex_size,
+            </if>
+            <if test="annexUploadTime != null">
+                annex_upload_time,
+            </if>
+            <if test="status != null">
+                status,
+            </if>
+            <if test="content != null">
+                content,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="title != null">
+                #{title,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="releaseTime != null">
+                #{releaseTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="userId != null">
+                #{userId,jdbcType=INTEGER},
+            </if>
+            <if test="weights != null">
+                #{weights,jdbcType=REAL},
+            </if>
+            <if test="annexType != null">
+                #{annexType,jdbcType=INTEGER},
+            </if>
+            <if test="annexStoragePath != null">
+                #{annexStoragePath,jdbcType=VARCHAR},
+            </if>
+            <if test="annexSize != null">
+                #{annexSize,jdbcType=INTEGER},
+            </if>
+            <if test="annexUploadTime != null">
+                #{annexUploadTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=INTEGER},
+            </if>
+            <if test="content != null">
+                #{content,jdbcType=LONGVARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 修改资讯信息 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.gibbons.informationserver.entity.Advisory">
+        update info_advisory
+        <set>
+            <if test="title != null">
+                title = #{title,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="releaseTime != null">
+                release_time = #{releaseTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="userId != null">
+                user_id = #{userId,jdbcType=INTEGER},
+            </if>
+            <if test="weights != null">
+                weights = #{weights,jdbcType=REAL},
+            </if>
+            <if test="annexType != null">
+                annex_type = #{annexType,jdbcType=INTEGER},
+            </if>
+            <if test="annexStoragePath != null">
+                annex_storage_path = #{annexStoragePath,jdbcType=VARCHAR},
+            </if>
+            <if test="annexSize != null">
+                annex_size = #{annexSize,jdbcType=INTEGER},
+            </if>
+            <if test="annexUploadTime != null">
+                annex_upload_time = #{annexUploadTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="status != null">
+                status = #{status,jdbcType=INTEGER},
+            </if>
+            <if test="content != null">
+                content = #{content,jdbcType=LONGVARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+</mapper>

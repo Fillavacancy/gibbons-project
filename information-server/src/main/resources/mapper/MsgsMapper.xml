@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gibbons.informationserver.dao.MsgsDao">
+    <resultMap id="BaseResultMap" type="com.gibbons.informationserver.entity.Msgs">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="send_time" jdbcType="TIMESTAMP" property="sendTime"/>
+        <result column="read_time" jdbcType="TIMESTAMP" property="readTime"/>
+        <result column="type" jdbcType="INTEGER" property="type"/>
+        <result column="user" jdbcType="INTEGER" property="user"/>
+        <result column="friend" jdbcType="INTEGER" property="friend"/>
+        <result column="sender" jdbcType="INTEGER" property="sender"/>
+        <result column="receiver" jdbcType="INTEGER" property="receiver"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
+    </resultMap>
+    <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.gibbons.informationserver.entity.Msgs">
+        <result column="content" jdbcType="LONGVARCHAR" property="content"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, send_time, read_time, type, user, friend, sender, receiver, status
+  </sql>
+    <sql id="Blob_Column_List">
+    content
+  </sql>
+
+    <!-- 查询留言信息 根据type查询 管理员查询所有 -->
+    <select id="getMsgsByUserIdAndType" resultMap="ResultMapWithBLOBs">
+        select
+        <include refid="Base_Column_List"/>
+        ,
+        <include refid="Blob_Column_List"/>
+        from info_msgs
+        <where>
+            <if test="type != null and type == 1">
+                user = #{userId,jdbcType=INTEGER} and
+            </if>
+            status = 1
+        </where>
+    </select>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+        select
+        <include refid="Base_Column_List"/>
+        ,
+        <include refid="Blob_Column_List"/>
+        from info_msgs
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+
+    <!-- 删除留言信息 -->
+    <update id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    update info_msgs
+      set status = -1
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+    <!-- 添加留言信息 -->
+    <insert id="insertSelective" keyColumn="id" keyProperty="id"
+            parameterType="com.gibbons.informationserver.entity.Msgs" useGeneratedKeys="true">
+        insert into info_msgs
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="sendTime != null">
+                send_time,
+            </if>
+            <if test="readTime != null">
+                read_time,
+            </if>
+            <if test="type != null">
+                type,
+            </if>
+            <if test="user != null">
+                user,
+            </if>
+            <if test="friend != null">
+                friend,
+            </if>
+            <if test="sender != null">
+                sender,
+            </if>
+            <if test="receiver != null">
+                receiver,
+            </if>
+            <if test="status != null">
+                status,
+            </if>
+            <if test="content != null">
+                content,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="sendTime != null">
+                #{sendTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="readTime != null">
+                #{readTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="type != null">
+                #{type,jdbcType=INTEGER},
+            </if>
+            <if test="user != null">
+                #{user,jdbcType=INTEGER},
+            </if>
+            <if test="friend != null">
+                #{friend,jdbcType=INTEGER},
+            </if>
+            <if test="sender != null">
+                #{sender,jdbcType=INTEGER},
+            </if>
+            <if test="receiver != null">
+                #{receiver,jdbcType=INTEGER},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=INTEGER},
+            </if>
+            <if test="content != null">
+                #{content,jdbcType=LONGVARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.gibbons.informationserver.entity.Msgs">
+        update info_msgs
+        <set>
+            <if test="sendTime != null">
+                send_time = #{sendTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="readTime != null">
+                read_time = #{readTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="type != null">
+                type = #{type,jdbcType=INTEGER},
+            </if>
+            <if test="user != null">
+                user = #{user,jdbcType=INTEGER},
+            </if>
+            <if test="friend != null">
+                friend = #{friend,jdbcType=INTEGER},
+            </if>
+            <if test="sender != null">
+                sender = #{sender,jdbcType=INTEGER},
+            </if>
+            <if test="receiver != null">
+                receiver = #{receiver,jdbcType=INTEGER},
+            </if>
+            <if test="status != null">
+                status = #{status,jdbcType=INTEGER},
+            </if>
+            <if test="content != null">
+                content = #{content,jdbcType=LONGVARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+</mapper>
