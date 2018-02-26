@@ -10,6 +10,7 @@ import com.gibbons.commonserver.entity.Result;
 import com.gibbons.commonserver.util.ResultUtil;
 import com.gibbons.sysserver.entity.Dict;
 import com.gibbons.sysserver.service.DictService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
@@ -30,6 +31,7 @@ import java.util.List;
  * @since 1.0.0
  */
 @RestController("/sys/dict")
+@Api(description = "数据字典")
 public class DictController {
 
     @Autowired
@@ -73,7 +75,7 @@ public class DictController {
     @ApiOperation(value = "更新数据字典", notes = "根据url的id来指定更新数据字典信息")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "id", value = "数据字典 ID", required = true, dataType = "Integer", paramType = "path"),
-            @ApiImplicitParam(name = "dict", value = "数据字典实体dict", required = true, dataType = "Dict")
+            @ApiImplicitParam(name = "dict", value = "数据字典实体 dict", required = true, dataType = "Dict")
     })
     @RequestMapping(value = "update/dict/{id}", method = RequestMethod.PUT)
     public Result<Object> updateDict(@PathVariable("id") Integer id, Dict dict) {

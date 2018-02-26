@@ -8,6 +8,7 @@ package com.gibbons.sysserver.controller;
 
 import com.gibbons.sysserver.entity.User;
 import com.github.pagehelper.Page;
+import io.swagger.annotations.Api;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -24,6 +25,7 @@ import javax.servlet.http.HttpServletRequest;
  * @since 1.0.0
  */
 @Controller("/sys/user")
+@Api(description = "用户管理")
 public class UserController {
 
     /**

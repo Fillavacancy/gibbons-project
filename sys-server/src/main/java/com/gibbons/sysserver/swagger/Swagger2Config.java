@@ -33,7 +33,7 @@ public class Swagger2Config {
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 .title("Gibbons Api Documentation")
-                .description("SL会员商城管理后台API接口文档")
+                .description("SL会员商城后台管理API接口文档")
                 .termsOfServiceUrl("http://blog.Gibbons.cn")
                 .contact(new Contact("Gibbons", "http://blog.Gibbons.cn", "xiangjunzhong@qq.com"))
                 .version("1.0.0")

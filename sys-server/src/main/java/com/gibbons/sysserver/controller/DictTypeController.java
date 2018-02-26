@@ -10,6 +10,7 @@ import com.gibbons.commonserver.entity.Result;
 import com.gibbons.commonserver.util.ResultUtil;
 import com.gibbons.sysserver.entity.DictType;
 import com.gibbons.sysserver.service.DictTypeService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
@@ -30,6 +31,7 @@ import java.util.List;
  * @since 1.0.0
  */
 @RestController("/sys/dict/type")
+@Api(description = "数据字典类型")
 public class DictTypeController {
 
     @Autowired
