@@ -2,9 +2,6 @@ package com.gibbons.commonserver.entity;
 
 import java.io.Serializable;
 
-/**
- * @author Exrickx
- */
 public class City implements Serializable {
 
     String city;

@@ -1,12 +1,7 @@
 package com.gibbons.commonserver.util;
 
-
 import com.gibbons.commonserver.entity.Result;
 
-/**
- * @author Exrick
- * @date 2017/8/20
- */
 public class ResultUtil<T> {
 
     private Result<T> result;

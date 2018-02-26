@@ -22,6 +22,8 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <commons-lang3-version>3.6</commons-lang3-version>
+        <mapper-spring-boot-starter-version>1.1.5</mapper-spring-boot-starter-version>
+        <pagehelper-spring-boot-starter-version>1.2.3</pagehelper-spring-boot-starter-version>
     </properties>
 
     <dependencies>
@@ -69,6 +71,20 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>${commons-lang3-version}</version>
+        </dependency>
+
+        <!-- pagehelper 分页插件 -->
+        <!--mapper-->
+        <dependency>
+            <groupId>tk.mybatis</groupId>
+            <artifactId>mapper-spring-boot-starter</artifactId>
+            <version>${mapper-spring-boot-starter-version}</version>
+        </dependency>
+        <!--pagehelper-->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+            <version>${pagehelper-spring-boot-starter-version}</version>
         </dependency>
 
         <dependency>

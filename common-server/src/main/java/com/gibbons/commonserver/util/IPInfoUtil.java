@@ -9,10 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
-
-/**
- * @author Exrickx
- */
 public class IPInfoUtil {
 
     private static final Logger log = LoggerFactory.getLogger(IPInfoUtil.class);

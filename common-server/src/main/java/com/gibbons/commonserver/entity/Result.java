@@ -4,7 +4,6 @@ package com.gibbons.commonserver.entity;
 import java.io.Serializable;
 
 /**
- * Created by Exrick on 2017/8/20.
  * 前后端交互数据标准
  */
 public class Result<T> implements Serializable {
