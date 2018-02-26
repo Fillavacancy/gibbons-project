@@ -11,8 +11,8 @@ zuul:
   #ignoredPatterns: /**/admin/**    # 设置忽略的请求路径
   sensitive-headers: Cookie,Set-Cookie,Authorization
   routes:
-    sping-cloud-eureka-server-provider:
-      path: /server/provider/**
+    member-server:
+      path: /member/server/**
       custom-sensitive-headers: false
     legacy:
       path: /**
