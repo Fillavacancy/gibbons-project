@@ -21,37 +21,85 @@ public class User implements Serializable {
 
     private static final long serialVersionUID = 6325730346193896323L;
 
+    /**
+     * 编号
+     */
     private Integer id;
 
+    /**
+     * 用户名
+     */
     private String userName;
 
+    /**
+     * 密码
+     */
     private String password;
 
+    /**
+     * 商城密码
+     */
     private String mallPassword;
 
+    /**
+     * 真实姓名
+     */
     private String actualName;
 
+    /**
+     * 证件类型 ID
+     */
     private Integer paperworkTypeId;
 
+    /**
+     * 证件号码
+     */
     private String paperworkNumber;
 
+    /**
+     * 联系电话
+     */
     private String contactNumber;
 
+    /**
+     * 电子邮件
+     */
     private String eMail;
 
+    /**
+     * 身份证图片正
+     */
     private String idCardImgz;
 
+    /**
+     * 身份证图片反
+     */
     private String idCardImgf;
 
+    /**
+     * 用户类型 ID
+     */
     private Integer userTypeId;
 
+    /**
+     * 注册时间
+     */
     private Timestamp registrationTime;
 
+    /**
+     * 修改时间
+     */
     private Timestamp updateTime;
 
+    /**
+     * 推荐人
+     */
     private String referee;
 
-    private Integer state;
+    /**
+     * 状态
+     */
+    private Integer status;
 
     public Integer getId() {
         return id;
@@ -173,11 +221,11 @@ public class User implements Serializable {
         this.referee = referee == null ? null : referee.trim();
     }
 
-    public Integer getState() {
-        return state;
+    public Integer getStatus() {
+        return status;
     }
 
-    public void setState(Integer state) {
-        this.state = state;
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 }

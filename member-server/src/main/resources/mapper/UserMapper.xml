@@ -17,12 +17,12 @@
         <result column="registration_time" jdbcType="TIMESTAMP" property="registrationTime"/>
         <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
         <result column="referee" jdbcType="VARCHAR" property="referee"/>
-        <result column="state" jdbcType="INTEGER" property="state"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
     </resultMap>
     <sql id="Base_Column_List">
     id, user_name, password, mall_password, actual_name, paperwork_type_id, paperwork_number, 
     contact_number, e-mail, id_card_imgz, id_card_imgf, user_type_id, registration_time, 
-    update_time, referee, state
+    update_time, referee, status
   </sql>
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         select
@@ -80,8 +80,8 @@
             <if test="referee != null">
                 referee,
             </if>
-            <if test="state != null">
-                state,
+            <if test="status != null">
+                status,
             </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -127,8 +127,8 @@
             <if test="referee != null">
                 #{referee,jdbcType=VARCHAR},
             </if>
-            <if test="state != null">
-                #{state,jdbcType=INTEGER},
+            <if test="status != null">
+                #{status,jdbcType=INTEGER},
             </if>
         </trim>
     </insert>
@@ -177,8 +177,8 @@
             <if test="referee != null">
                 referee = #{referee,jdbcType=VARCHAR},
             </if>
-            <if test="state != null">
-                state = #{state,jdbcType=INTEGER},
+            <if test="status != null">
+                status = #{status,jdbcType=INTEGER},
             </if>
         </set>
         where id = #{id,jdbcType=INTEGER}

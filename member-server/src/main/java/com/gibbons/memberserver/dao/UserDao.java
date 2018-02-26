@@ -6,6 +6,7 @@
  */
 package com.gibbons.memberserver.dao;
 
+
 import com.gibbons.memberserver.entity.User;
 
 /**
