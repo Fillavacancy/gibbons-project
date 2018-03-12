@@ -113,6 +113,12 @@
             <version>1.6</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.gibbons</groupId>
+            <artifactId>common-server</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
         <!-- MyBatis 逆向工程 -->
         <dependency>
             <groupId>org.mybatis.generator</groupId>
